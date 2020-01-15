@@ -1,5 +1,6 @@
 package com.develogical;
 
+import jdk.nashorn.internal.runtime.ECMAException;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.not;
@@ -17,17 +18,22 @@ public class QueryProcessorTest {
     }
 
     @Test
-    public void knowsAboutShakespeare() throws Exception {
-        assertThat(queryProcessor.process("Shakespeare"), containsString("playwright"));
-    }
-
-    @Test
     public void isNotCaseSensitive() throws Exception {
         assertThat(queryProcessor.process("shakespeare"), containsString("playwright"));
     }
 
     @Test
+    public void knowsAboutShakespeare() throws Exception {
+        assertThat(queryProcessor.process("Shakespeare"), containsString("playwright"));
+    }
+
+    @Test
     public void knowsAboutEmptyString() throws Exception {
         assertThat(queryProcessor.process(""), not(""));
+    }
+
+    @Test
+    public void knowsAboutTheEmporor() throws Exception {
+        assertThat(queryProcessor.process("Remi is a God"), containsString("who I am"));
     }
 }

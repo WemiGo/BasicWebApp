@@ -10,6 +10,8 @@ public class QueryProcessor {
         } else if (query.toLowerCase().isEmpty()) {
             return "Woah there! Looks like you've submitted an empty string... That's not great! " +
                     "You should really get that looked at";
+        } else if (query.toLowerCase().contains("remi")) {
+            return "Heeyy you guessed who I was... That's great for you, not for me!";
         }
         return "";
     }
