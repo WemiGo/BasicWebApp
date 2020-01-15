@@ -34,6 +34,6 @@ public class QueryProcessorTest {
 
     @Test
     public void knowsAboutTheEmporor() throws Exception {
-        assertThat(queryProcessor.process("Remi is a God"), containsString("who I am"));
+        assertThat(queryProcessor.process("Remi is a God"), containsString("who I was"));
     }
 }
