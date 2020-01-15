@@ -2,3 +2,8 @@ language: java
 jdk:
 - openjdk8
 script: mvn clean verify
+deploy:
+  provider: heroku
+  api_key:
+    secure: M11Lcaedp5t77osHN6r9Ruwndc/3+nUZ2LeevdYo8sCo7yyhvujro6hpyCbzXk+/IZMI9Jbhjl4cITi+bT+tVUjkYmATD/VFr8irKWO39t1bWGiUelmIroXyhukHZp/OlguxmYv6Atni19aLbP7SesdE5w5ax6g9mYnbcIryuJN0hoDB/GI7hBqPcSM3mK8HjL/qpVQAOWr0zTXj0Z8aGreZE3bS4eFJl1ioPW9HE70ZkjyXUYS0alm535xB8W4VmB1WISpxKML+PssCPQJ2y79K5q9H+E+zop6hTLLZjuSVOnTQi39t/7CZNlHLRlVHu9+VxgpdIrygCaJrn6vv7pCt54HqBLB/TNcOi2ob7kgCiyZfBmx5tA75l7P9fIcYvUNV++PCP5Vz+BuGte5dbqqiAkU9ZjQSapmtYgbFtiK6Z4lV0saH/w8uUgVTpjjMPuvS0BcOv0gSWRsv3FAp0skynx/widbDB62GQk+Iw3IUep0VgSAimr4qCxX6tHJ+QVK8J0MLRhP3qT7hP/OTuhgX1vGRvhOOrmPHPRewQj2z7WiAJvlWxnzBkHn1YOGtrtVHdgZiDGCgZeTWVPcn9UB6cTAzGV/YqjR4zGZPt2K+tTSKxc5+rZNhg64ORlWgiGhVTCxCFdT7nYNfYZPuo8bWimgP44C3TaAQVf4TNGg=
+  app: co475-topic1
