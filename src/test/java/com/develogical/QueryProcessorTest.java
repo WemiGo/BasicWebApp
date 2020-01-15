@@ -2,6 +2,7 @@ package com.develogical;
 
 import org.junit.Test;
 
+import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.CoreMatchers.containsString;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -23,5 +24,10 @@ public class QueryProcessorTest {
     @Test
     public void isNotCaseSensitive() throws Exception {
         assertThat(queryProcessor.process("shakespeare"), containsString("playwright"));
+    }
+
+    @Test
+    public void knowsAboutEmptyString() throws Exception {
+        assertThat(queryProcessor.process(""), not(""));
     }
 }
