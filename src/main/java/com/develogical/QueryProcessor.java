@@ -18,14 +18,10 @@ public class QueryProcessor {
         } else if (query.toLowerCase().contains("team name")) {
             return "Entity";
         } else if (query.toLowerCase().contains("which of the following numbers is the largest:")) {
-            System.out.println(query);
             String comma = Arrays.asList(query.split(":")).get(2);
-            System.out.println(comma);
             List<String> numbers = Arrays.asList(comma.split(","));
-            System.out.println(numbers);
             int maximum = 0;
             for (String n : numbers) {
-                System.out.println(n);
                 n = n.replaceAll("\\s+", "");
                 if (Integer.parseInt(n) > maximum) {
                     maximum = Integer.parseInt(n);
