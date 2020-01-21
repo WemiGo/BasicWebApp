@@ -102,6 +102,10 @@ public class QueryProcessor {
                 return "0";
             }
             return String.valueOf(fib.get(nth));
+        } else if (query.toLowerCase().contains("power")) {
+            String issplit = Arrays.asList(query.split("is")).get(1);
+            List<String> numbers  = Arrays.asList(issplit.split("power"));
+            return String.valueOf(Math.pow(Integer.parseInt(numbers.get(0).replaceAll("\\s+", "")), Integer.parseInt(numbers.get(1).replaceAll("\\s+", ""))));
         }
         return "";
     }
