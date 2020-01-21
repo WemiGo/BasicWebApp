@@ -14,10 +14,10 @@ public class QueryProcessor {
         } else if (query.toLowerCase().contains("multiplied by") && query.toLowerCase().contains("plus")) {
             String issplit = Arrays.asList(query.split("is")).get(1);
             List<String> numbers  = Arrays.asList(issplit.split("multiplied by"));
-            int a = Integer.parseInt(numbers.get(0));
+            int a = Integer.parseInt(numbers.get(0).replaceAll("\\s+", ""));
             List<String> numbers_b = Arrays.asList(numbers.get(1).split("plus"));
-            int b = Integer.parseInt(numbers_b.get(0));
-            int c = Integer.parseInt(numbers_b.get(1));
+            int b = Integer.parseInt(numbers_b.get(0).replaceAll("\\s+", ""));
+            int c = Integer.parseInt(numbers_b.get(1).replaceAll("\\s+", ""));
             return String.valueOf(a * b + c);
         } else if (query.toLowerCase().isEmpty()) {
             return "Woah there! Looks like you've submitted an empty string... That's not great! " +
