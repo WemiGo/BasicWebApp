@@ -97,8 +97,11 @@ public class QueryProcessor {
             return "hamster, oranges";
         } else if (query.toLowerCase().contains("fibonacci sequence")) {
             int nth = Integer.parseInt(query.split("what is the ")[1].split("th")[0]);
-            List<String> fib = Arrays.asList("0", "1", "1", "2", "3", "5", "8", "13", "21", "34", "55", "89", "144");
-            return fib.get(nth);
+            List<Integer> fib = Arrays.asList(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811);
+            if (nth >= fib.size()) {
+                return "0";
+            }
+            return String.valueOf(fib.get(nth));
         }
         return "";
     }
