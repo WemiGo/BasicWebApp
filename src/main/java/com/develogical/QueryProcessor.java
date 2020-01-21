@@ -110,7 +110,14 @@ public class QueryProcessor {
         } else if (query.toLowerCase().contains("which of the following words has the most letters")) {
             return "hamster, oranges";
         } else if (query.toLowerCase().contains("fibonacci sequence")) {
-            int nth = Integer.parseInt(query.split("what is the ")[1].split("th")[0]);
+            int nth = 0;
+            if (query.contains("th ")) {
+                nth = Integer.parseInt(query.split("what is the ")[1].split("th")[0]);
+            } else if (query.contains("nd ")) {
+                nth = Integer.parseInt(query.split("what is the ")[1].split("nd")[0]);
+            } else {
+                nth = Integer.parseInt(query.split("what is the ")[1].split("st")[0]);
+            }
             List<Integer> fib = Arrays.asList(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181, 6765, 10946, 17711, 28657, 46368, 75025, 121393, 196418, 317811);
             if (nth >= fib.size()) {
                 return "0";
