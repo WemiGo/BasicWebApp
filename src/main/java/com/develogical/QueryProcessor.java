@@ -12,6 +12,8 @@ public class QueryProcessor {
                     "You should really get that looked at";
         } else if (query.toLowerCase().contains("remi")) {
             return "Heeyy you guessed who I was... That's great for you, not for me!";
+        } else if (query.toLowerCase().contains("team name")) {
+            return "Entity";
         }
         return "";
     }
