@@ -54,6 +54,10 @@ public class QueryProcessor {
         } else if (query.toLowerCase().contains("eiffel tower")) {
 //            String country = query.toLowerCase().split("capital of")[0];
             return "Paris";
+        } else if (query.toLowerCase().contains("minus")) {
+            String issplit = Arrays.asList(query.split("is")).get(1);
+            List<String> numbers  = Arrays.asList(issplit.split("minus"));
+            return String.valueOf(Integer.parseInt(numbers.get(0).replaceAll("\\s+", "")) - Integer.parseInt(numbers.get(1).replaceAll("\\s+", "")));
         }
         return "";
     }
