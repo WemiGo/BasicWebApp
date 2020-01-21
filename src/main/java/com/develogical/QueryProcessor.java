@@ -36,6 +36,18 @@ public class QueryProcessor {
             String issplit = Arrays.asList(query.split("is")).get(1);
             List<String> numbers  = Arrays.asList(issplit.split("multiplied by"));
             return String.valueOf(Integer.parseInt(numbers.get(0).replaceAll("\\s+", "")) * Integer.parseInt(numbers.get(1).replaceAll("\\s+", "")));
+        } else if (query.toLowerCase().contains("which of the following numbers is both a square and a cube")) {
+            String comma = Arrays.asList(query.split(":")).get(2);
+            List<String> numbers = Arrays.asList(comma.split(","));
+            int maximum = 0;
+            for (String n : numbers) {
+                n = n.replaceAll("\\s+", "");
+                int m = Integer.parseInt(n);
+                if (m == Math.sqrt(m) * Math.sqrt(m) && m == Math.cbrt(m) * Math.cbrt(m) * Math.cbrt(m)) {
+                    return String.valueOf(m);
+                }
+            }
+            return "None";
         }
         return "";
     }
