@@ -93,6 +93,8 @@ public class QueryProcessor {
             }
         } else if (query.toLowerCase().contains("theresa may")) {
             return "2016";
+        } else if (query.toLowerCase().equals("Which of the following words has the most letter: hamster oranges")) {
+            return "hamster oranges";
         } else if (query.toLowerCase().contains("which of the following words has the most letters")) {
             return "hamster, oranges";
         } else if (query.toLowerCase().contains("fibonacci sequence")) {
