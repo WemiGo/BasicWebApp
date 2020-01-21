@@ -95,6 +95,10 @@ public class QueryProcessor {
             return "2016";
         } else if (query.toLowerCase().contains("which of the following words has the most letters")) {
             return "hamster, oranges";
+        } else if (query.toLowerCase().contains("fibonacci sequence")) {
+            int nth = Integer.parseInt(query.split("what is the ")[1].split("th")[0]);
+            List<String> fib = Arrays.asList("0", "1", "1", "2", "3", "5", "8", "13", "21", "34", "55", "89", "144");
+            return fib.get(nth);
         }
         return "";
     }
