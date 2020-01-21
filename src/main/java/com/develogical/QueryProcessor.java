@@ -22,12 +22,17 @@ public class QueryProcessor {
             List<String> numbers = Arrays.asList(comma.split(","));
             int maximum = 0;
             for (String n : numbers) {
+                n = n.replaceAll("\\s+", "");
                 if (Integer.parseInt(n) > maximum) {
                     maximum = Integer.parseInt(n);
                 }
             }
             return String.valueOf(maximum);
-        } 
+        } else if (query.toLowerCase().contains("plus")) {
+            String issplit = Arrays.asList(query.split("is")).get(1);
+            List<String> numbers  = Arrays.asList(issplit.split("plus"));
+            return String.valueOf(Integer.parseInt(numbers.get(0).replaceAll("\\s+", "")) + Integer.parseInt(numbers.get(1).replaceAll("\\s+", "")));
+        }
         return "";
     }
 }
