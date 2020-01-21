@@ -19,7 +19,7 @@ public class QueryProcessor {
             int b = Integer.parseInt(numbers_b.get(0));
             int c = Integer.parseInt(numbers_b.get(1));
             return String.valueOf(a * b + c);
-        }else if (query.toLowerCase().isEmpty()) {
+        } else if (query.toLowerCase().isEmpty()) {
             return "Woah there! Looks like you've submitted an empty string... That's not great! " +
                     "You should really get that looked at";
         } else if (query.toLowerCase().contains("remi")) {
@@ -42,7 +42,11 @@ public class QueryProcessor {
         } else if (query.toLowerCase().contains("plus")) {
             String issplit = Arrays.asList(query.split("is")).get(1);
             List<String> numbers  = Arrays.asList(issplit.split("plus"));
-            return String.valueOf(Integer.parseInt(numbers.get(0).replaceAll("\\s+", "")) + Integer.parseInt(numbers.get(1).replaceAll("\\s+", "")));
+            int sum = 0;
+            for (String n : numbers) {
+                sum += Integer.parseInt(n.replaceAll("\\s+", ""));
+            }
+            return String.valueOf(sum);
         } else if (query.toLowerCase().contains("multiplied")) {
             String issplit = Arrays.asList(query.split("is")).get(1);
             List<String> numbers  = Arrays.asList(issplit.split("multiplied by"));
