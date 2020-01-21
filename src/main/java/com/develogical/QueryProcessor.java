@@ -1,5 +1,6 @@
 package com.develogical;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -58,6 +59,38 @@ public class QueryProcessor {
             String issplit = Arrays.asList(query.split("is")).get(1);
             List<String> numbers  = Arrays.asList(issplit.split("minus"));
             return String.valueOf(Integer.parseInt(numbers.get(0).replaceAll("\\s+", "")) - Integer.parseInt(numbers.get(1).replaceAll("\\s+", "")));
+        } else if (query.toLowerCase().contains("which of the following numbers are prime")) {
+            String comma = Arrays.asList(query.split(":")).get(2);
+            List<String> numbers = Arrays.asList(comma.split(","));
+            ArrayList<Integer> primes = new ArrayList<>();
+            for (String n : numbers) {
+                n = n.replaceAll("\\s+", "");
+                int m = Integer.parseInt(n);
+                boolean flag = false;
+                for(int i = 2; i <= m/2; ++i)
+                {
+                    // condition for nonprime number
+                    if(m % i == 0)
+                    {
+                        flag = true;
+                        break;
+                    }
+                }
+                if (!flag) {
+                    primes.add(m);
+                }
+            }
+            if (primes.size() > 0) {
+                StringBuilder res = new StringBuilder();
+                for (int n : primes) {
+                    res.append(String.valueOf(n)).append(", ");
+                }
+                return res.toString();
+            } else {
+                return "None";
+            }
+        } else if (query.toLowerCase().contains("theresa may")) {
+            return "2016";
         }
         return "";
     }
