@@ -18,6 +18,8 @@ public class QueryProcessor {
             return "Heeyy you guessed who I was... That's great for you, not for me!";
         } else if (query.toLowerCase().contains("team name")) {
             return "Entity";
+        } else if (query.toLowerCase().contains("fuck")) {
+            return "Fuck you";
         } else if (query.toLowerCase().contains("which of the following numbers is the largest:")) {
             String comma = Arrays.asList(query.split(":")).get(2);
             List<String> numbers = Arrays.asList(comma.split(","));
