@@ -11,7 +11,15 @@ public class QueryProcessor {
             return "William Shakespeare (26 April 1564 - 23 April 1616) was an " +
                     "English poet, playwright, and actor, widely regarded as the greatest " +
                     "writer in the English language and the world's pre-eminent dramatist.";
-        } else if (query.toLowerCase().isEmpty()) {
+        } else if (query.toLowerCase().contains("multiplied by") && query.toLowerCase().contains("plus")) {
+            String issplit = Arrays.asList(query.split("is")).get(1);
+            List<String> numbers  = Arrays.asList(issplit.split("multiplied by"));
+            int a = Integer.parseInt(numbers.get(0));
+            List<String> numbers_b = Arrays.asList(numbers.get(1).split("plus"));
+            int b = Integer.parseInt(numbers_b.get(0));
+            int c = Integer.parseInt(numbers_b.get(1));
+            return String.valueOf(a * b + c);
+        }else if (query.toLowerCase().isEmpty()) {
             return "Woah there! Looks like you've submitted an empty string... That's not great! " +
                     "You should really get that looked at";
         } else if (query.toLowerCase().contains("remi")) {
