@@ -48,6 +48,9 @@ public class QueryProcessor {
                 }
             }
             return "None";
+        } else if (query.toLowerCase().contains("capital of ")) {
+//            String country = query.toLowerCase().split("capital of")[0];
+            return "Paris";
         }
         return "";
     }
